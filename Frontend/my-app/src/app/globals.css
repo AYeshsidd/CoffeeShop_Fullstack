@@ -1,26 +1,319 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ==========================================================================
+   The Coffee House - Global Design System
+   Premium coffee-inspired theme with European café elegance
+   ========================================================================== */
+
+@theme {
+  /* Coffee-Inspired Color Palette */
+  --color-primary-50: #fdfbf7;
+  --color-primary-100: #f8f4ed;
+  --color-primary-200: #f0e6d6;
+  --color-primary-300: #e3d4bb;
+  --color-primary-400: #c9b899;
+  --color-primary-500: #a8906f;
+  --color-primary-600: #8b7355;
+  --color-primary-700: #6d5742;
+  --color-primary-800: #4a3a2a;
+  --color-primary-900: #2d2318;
+
+  /* Accent - Burnt Caramel */
+  --color-accent-50: #fff8f0;
+  --color-accent-100: #ffefd9;
+  --color-accent-200: #ffd9ae;
+  --color-accent-300: #ffbd7a;
+  --color-accent-400: #ff9f4d;
+  --color-accent-500: #e8823a;
+  --color-accent-600: #c86b2c;
+  --color-accent-700: #a15523;
+  --color-accent-800: #7a4020;
+
+  /* Coffee Semantic Colors */
+  --color-coffee-foam: #f8f4ed;
+  --color-coffee-latte: #c9b899;
+  --color-coffee-espresso: #4a3a2a;
+  --color-coffee-bean: #2d2318;
+
+  /* Evening Colors */
+  --color-evening-50: #fef8f3;
+  --color-evening-100: #fdeee1;
+  --color-evening-200: #f9dcc4;
+  --color-evening-300: #f4c5a0;
+  --color-evening-400: #eba870;
+  --color-evening-500: #d98b4f;
+
+  /* Neutral Colors */
+  --color-neutral-50: #fafaf9;
+  --color-neutral-100: #f5f4f2;
+  --color-neutral-200: #e9e7e3;
+  --color-neutral-300: #d8d5d0;
+  --color-neutral-400: #b3aea7;
+  --color-neutral-500: #857f77;
+  --color-neutral-600: #655f58;
+  --color-neutral-700: #4d4842;
+  --color-neutral-800: #363128;
+  --color-neutral-900: #1f1c17;
+
+  /* Font Families */
+  --font-family-sans: var(--font-inter), system-ui, sans-serif;
+  --font-family-display: var(--font-playfair), Georgia, serif;
+  --font-family-mono: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 3px 0 rgb(45 35 24 / 0.08);
+  --shadow: 0 2px 8px 0 rgb(45 35 24 / 0.12);
+  --shadow-md: 0 4px 16px -2px rgb(45 35 24 / 0.15);
+  --shadow-lg: 0 8px 24px -4px rgb(45 35 24 / 0.18);
+  --shadow-xl: 0 16px 40px -8px rgb(45 35 24 / 0.22);
+  --shadow-2xl: 0 24px 56px -12px rgb(45 35 24 / 0.28);
+  --shadow-inner-soft: inset 0 2px 8px 0 rgb(45 35 24 / 0.06);
+  --shadow-glow: 0 0 24px rgb(232 130 58 / 0.15);
+
+  /* Border Radius */
+  --radius-sm: 0.5rem;
+  --radius: 0.75rem;
+  --radius-md: 0.75rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-2xl: 2rem;
+  --radius-full: 9999px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+/* ==========================================================================
+   Base Styles
+   ========================================================================== */
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-primary-50);
+  color: var(--color-primary-900);
+  font-family: var(--font-family-sans);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Typography */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-display);
+  color: var(--color-primary-900);
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+@media (min-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.75rem;
+  }
+}
+
+h2 {
+  font-size: 1.875rem;
+}
+
+@media (min-width: 768px) {
+  h2 {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  h2 {
+    font-size: 3rem;
+  }
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  h3 {
+    font-size: 1.875rem;
+  }
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  h4 {
+    font-size: 1.5rem;
+  }
+}
+
+p {
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--color-primary-700);
+}
+
+/* Links */
+a {
+  transition: color 200ms;
+}
+
+/* Selection */
+::selection {
+  background-color: rgb(255 159 77 / 0.3);
+  color: var(--color-primary-900);
+}
+
+::-moz-selection {
+  background-color: rgb(255 159 77 / 0.3);
+  color: var(--color-primary-900);
+}
+
+/* Focus Styles */
+*:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 4px rgb(232 130 58 / 0.3), 0 0 0 6px transparent;
+  outline-offset: 2px;
+}
+
+/* Scrollbar Styling (Webkit) */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--color-primary-100);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-400);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-500);
+}
+
+/* Firefox Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #c9b899 #f8f4ed;
+}
+
+/* ==========================================================================
+   Utility Classes
+   ========================================================================== */
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+.glass-morphism {
+  backdrop-filter: blur(12px);
+  background-color: rgb(255 255 255 / 0.8);
+  border: 1px solid rgb(240 230 214 / 0.5);
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* ==========================================================================
+   Keyframe Animations
+   ========================================================================== */
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-glow {
+  animation: glow 3s ease-in-out infinite;
+}
+
+/* ==========================================================================
+   Print Styles
+   ========================================================================== */
+
+@media print {
+  body {
+    background-color: white;
+    color: black;
+  }
+
+  nav, footer, .no-print {
+    display: none;
+  }
+
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Support
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
