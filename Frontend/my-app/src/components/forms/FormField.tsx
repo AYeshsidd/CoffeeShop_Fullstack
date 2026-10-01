@@ -48,6 +48,7 @@ export const FormField: React.FC<FormFieldProps> = ({
       <div className="relative">
         <Input
           id={id}
+          name={id}
           type={inputType}
           required={required}
           placeholder={placeholder}

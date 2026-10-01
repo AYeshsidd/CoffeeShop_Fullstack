@@ -5,6 +5,7 @@ from auth import alchemy_model
 from core.db import engine , Base
 from auth.routes import router as auth_router
 from catalog.routes import router as category_router , product_router
+from fastapi.middleware.cors import CORSMiddleware
 from cart.routes import router as cart_router
 
 app = FastAPI(
@@ -24,6 +25,13 @@ app.include_router(cart_router)
 
 alchemy_model.Base.metadata.create_all(bind=engine) # create connection with MYSQL
 
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["http://localhost:3000"],  # frontend ka exact origin
+    allow_credentials=True,   # cookies/auth headers allow karne ke liye
+    allow_methods=["*"],      # GET, POST, PUT, DELETE, etc.
+    allow_headers=["*"],      # Authorization header sameet
+)
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=8000, reload=True)
