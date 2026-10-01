@@ -9,12 +9,13 @@ import { Button } from '@/components/ui/Button';
 import { LoginFormData, FormState } from '@/lib/types/forms';
 import { validators } from '@/lib/validation';
 import { simulateLogin } from '@/lib/auth';
+import { useRouter } from 'next/navigation';
+import { useAuth } from '@/lib/auth-context';
 
-/**
- * User Login Page - The Coffee House
- * Premium design with excellent contrast and professional styling
- */
 export default function LoginPage() {
+  const { setSession } = useAuth();
+  const router = useRouter();
+  
   const [form, setForm] = useState<FormState<LoginFormData>>({
     values: {
       email: '',
@@ -109,6 +110,7 @@ export default function LoginPage() {
     return isAllValid;
   };
 
+  // const router = useRouter();
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -121,14 +123,17 @@ export default function LoginPage() {
     try {
       const result = await simulateLogin(form.values);
 
-      if (result.success) {
+      if (result.success && result.tokens) {
         setForm((prev) => ({
           ...prev,
           isSubmitting: false,
           hasSubmitted: true,
           formSuccess: result.message,
         }));
-      } else {
+       await setSession(result.tokens);
+      setTimeout(() => router.push('/'), 1200);
+      } 
+      else {
         setForm((prev) => ({
           ...prev,
           isSubmitting: false,

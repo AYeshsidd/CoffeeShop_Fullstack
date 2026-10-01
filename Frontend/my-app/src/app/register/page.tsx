@@ -8,22 +8,25 @@ import { Button } from '@/components/ui/Button';
 import { RegistrationFormData, FormState } from '@/lib/types/forms';
 import { validators } from '@/lib/validation';
 import { simulateRegistration } from '@/lib/auth';
+import { useRouter } from 'next/navigation';
 
-/**
- * User Registration Page - The Coffee House
- * Premium design with excellent contrast and professional styling
- */
+
 export default function RegisterPage() {
+  const router = useRouter();
   const [form, setForm] = useState<FormState<RegistrationFormData>>({
     values: {
       fullName: '',
       email: '',
+      address:'',
+      phone:'',
       password: '',
       confirmPassword: '',
     },
     validation: {
       fullName: { touched: false, error: undefined, isValid: false },
       email: { touched: false, error: undefined, isValid: false },
+       phone: { touched: false, error: undefined, isValid: false },
+       address: { touched: false, error: undefined, isValid: false },
       password: { touched: false, error: undefined, isValid: false },
       confirmPassword: { touched: false, error: undefined, isValid: false },
     },
@@ -43,9 +46,19 @@ export default function RegisterPage() {
       case 'email':
         result = validators.email(value);
         break;
+
+      case 'phone':
+       result = value.trim() ? true : 'Phone number is required';
+       break;
+      
+       case 'address':
+       result = value.trim() ? true : 'Address is required';
+       break;
+
       case 'password':
         result = validators.password(value);
         break;
+
       case 'confirmPassword':
         result = validators.passwordMatch(allValues.password, value);
         break;
@@ -134,16 +147,22 @@ export default function RegisterPage() {
           values: {
             fullName: '',
             email: '',
+            phone:'',
+            address:'',
             password: '',
             confirmPassword: '',
           },
           validation: {
             fullName: { touched: false, error: undefined, isValid: false },
             email: { touched: false, error: undefined, isValid: false },
+            phone: { touched: false, error: undefined, isValid: false },
+            address: { touched: false, error: undefined, isValid: false },
             password: { touched: false, error: undefined, isValid: false },
             confirmPassword: { touched: false, error: undefined, isValid: false },
           },
         }));
+
+  setTimeout(() => router.push('/login'), 1800);
       } else {
         setForm((prev) => ({
           ...prev,
@@ -224,6 +243,33 @@ export default function RegisterPage() {
                 onBlur={handleBlur}
                 error={form.validation.email.error}
                 touched={form.validation.email.touched}
+                disabled={form.isSubmitting}
+                required
+              />
+
+                <FormField
+                id="phone"
+                label="Phone Number"
+                type="tel"
+                placeholder="+92 300 1234567"
+                value={form.values.phone}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={form.validation.phone.error}
+                touched={form.validation.phone.touched}
+                disabled={form.isSubmitting}
+                required
+              />
+
+              <FormField
+                id="address"
+                label="Address"
+                placeholder="Your address"
+                value={form.values.address}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                error={form.validation.address.error}
+                touched={form.validation.address.touched}
                 disabled={form.isSubmitting}
                 required
               />

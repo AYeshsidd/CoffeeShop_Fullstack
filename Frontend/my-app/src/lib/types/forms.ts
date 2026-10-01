@@ -15,11 +15,15 @@ export interface RegistrationFormData {
   /** User's email address (validated format) */
   email: string;
 
-  /** User's chosen password (min 8 chars, 1 letter, 1 number) */
+  phone: string;      
+  
+  address: string;    
+
   password: string;
 
-  /** Password confirmation (must match password) */
+  
   confirmPassword: string;
+
 }
 
 /**

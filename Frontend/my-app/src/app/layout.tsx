@@ -4,6 +4,7 @@ import "./globals.css";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { AuthProvider } from "@/lib/auth-context";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -30,12 +31,15 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased min-h-screen bg-primary-50 text-primary-900 font-sans">
+        <AuthProvider>
         <AnnouncementBar />
-        <Navbar />
-        <main className="min-h-[calc(100vh-200px)]">
+        <Navbar />  
+       
+       <main className="min-h-[calc(100vh-200px)]">
           {children}
         </main>
         <Footer />
+          </AuthProvider>  
       </body>
     </html>
   );

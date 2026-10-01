@@ -26,4 +26,10 @@ export interface LoginResult {
 
   /** Optional validation errors keyed by field name */
   errors?: Record<keyof LoginFormData, string>;
+
+  tokens?: {
+    access_token: string;
+    refresh_token: string;
+    token_type: string;
+  };
 }
