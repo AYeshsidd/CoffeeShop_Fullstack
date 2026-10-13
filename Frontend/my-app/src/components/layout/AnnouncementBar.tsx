@@ -1,11 +1,4 @@
-'use client';
-
 import React from 'react';
-
-/**
- * Announcement Bar Component
- * Solid accent background for promotional messages - no excessive gradients
- */
 export const AnnouncementBar: React.FC = () => {
   return (
     <div className="sticky top-0 z-50 bg-accent-500 text-white py-2.5 shadow-sm border-b border-accent-600/30">

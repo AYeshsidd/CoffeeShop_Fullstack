@@ -7,10 +7,6 @@ import { ProductCard } from '@/components/products/ProductCard';
 import { CategoryFilter } from '@/components/products/CategoryFilter';
 import { products, categories, getFeaturedProducts, getProductsByCategory } from '@/lib/data/products';
 
-/**
- * Products Page - The Coffee House
- * Premium product browsing with varied section backgrounds
- */
 export default function ProductsPage() {
   const [activeCategory, setActiveCategory] = useState('all');
   const featuredProducts = getFeaturedProducts();
@@ -19,14 +15,14 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen">
       {/* Header Section - Dark Espresso Background */}
-      <section className="pt-16 pb-10 bg-primary-900 text-white">
+      <section className="pt-16 pb-10  text-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-5 border border-white/20">
               <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
               <span className="text-sm font-bold tracking-wide">Artisan Selection</span>
             </div>
-            <h1 className="font-display text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-semibold">
+            <h1 className=" text-white text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-semibold">
               Our Collection
             </h1>
             <p className="text-lg md:text-xl text-primary-100 leading-relaxed font-medium">

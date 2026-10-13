@@ -30,7 +30,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
-      <body className="antialiased min-h-screen bg-primary-50 text-primary-900 font-sans">
+      <body className="antialiased min-h-screen bg-primary-50 text-green-500 font-sans">
         <AuthProvider>
         <AnnouncementBar />
         <Navbar />  

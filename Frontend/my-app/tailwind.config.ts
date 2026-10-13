@@ -20,7 +20,7 @@ const config: Config = {
           600: '#8b7355',  // Roasted bean
           700: '#6d5742',  // Dark roast
           800: '#4a3a2a',  // Espresso
-          900: '#2d2318',  // Coffee grounds
+          // 900: '#2d2318',  // Coffee grounds
         },
         accent: {
           50: '#fff8f0',   // Cream puff
