@@ -20,7 +20,7 @@ export default function ProductsPage() {
           <div className="text-center max-w-3xl mx-auto">
             <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-5 border border-white/20">
               <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
-              <span className="text-sm font-bold tracking-wide">Artisan Selection</span>
+              <span className="text-sm  font-bold tracking-wide">Artisan Selection</span>
             </div>
             <h1 className=" text-white text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-semibold">
               Our Collection
