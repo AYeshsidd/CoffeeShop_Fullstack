@@ -15,12 +15,12 @@ export default function ProductsPage() {
   return (
     <main className="min-h-screen">
       {/* Header Section - Dark Espresso Background */}
-      <section className="pt-16 pb-10  text-white">
+      <section className="pt-16 pb-10 text-white">
         <Container>
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 backdrop-blur-sm rounded-full mb-5 border border-white/20">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-primary-200 backdrop-blur-sm rounded-full mb-5 border border-white/20">
               <span className="w-2 h-2 bg-accent-400 rounded-full animate-pulse"></span>
-              <span className="text-sm  font-bold tracking-wide">Artisan Selection</span>
+              <span className="text-sm text-accent-600 font-bold tracking-wide">Artisan Selection</span>
             </div>
             <h1 className=" text-white text-4xl md:text-5xl lg:text-6xl mb-4 leading-tight font-semibold">
               Our Collection

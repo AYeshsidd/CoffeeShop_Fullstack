@@ -19,7 +19,7 @@ Purpose:
 
 # This tells FastAPI: "expect a simple Bearer token in the
 # Authorization header — just a token, no username/password form."
-bearer_scheme = HTTPBearer()
+bearer_scheme = HTTPBearer() # It recieved token from the request header and pass it to get_current_user function.
 
 def get_current_user(
     credentials: HTTPAuthorizationCredentials = Depends(bearer_scheme),

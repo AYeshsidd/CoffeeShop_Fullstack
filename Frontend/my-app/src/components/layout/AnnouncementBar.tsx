@@ -1,7 +1,7 @@
 import React from 'react';
 export const AnnouncementBar: React.FC = () => {
   return (
-    <div className="sticky top-0 z-50 bg-accent-500 text-white py-2.5 shadow-sm border-b border-accent-600/30">
+    <div className="sticky top-0 z-50 bg-accent-500  py-2.5 shadow-sm border-b border-accent-600/30">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center gap-2 text-center">
           <svg className="w-4 h-4 flex-shrink-0 animate-pulse" fill="currentColor" viewBox="0 0 20 20">

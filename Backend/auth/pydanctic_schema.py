@@ -5,16 +5,16 @@ from typing import Literal
 class UserCreate(BaseModel):
     full_name : str
     email : str
-    role : Literal["customer", "admin", "cashier"] = "customer"
+    role : Literal["customer", "admin"] = "customer"
     phone : str
     address : str
     password: str = Field(min_length=8, max_length=72)
 
-    @field_validator('role',mode="before")
+    @field_validator('role',mode="before") 
     @classmethod
     def normalize_role(cls, value: str) -> str:
         if isinstance(value, str):
-            return value.strip().lower()
+            return value.strip().lower() # Admin -> admin, Customer -> customer
         return value
     
 class UserLogin(BaseModel):
@@ -37,7 +37,7 @@ class UserResponse(BaseModel):
         created_at:datetime
 
         class Config:
-            from_attributes = True
+            from_attributes = True # allows Pydantic to read data from SQLAlchemy and convert them into Pydantic models.
     
 
 class TokenRefreshRequest(BaseModel):
