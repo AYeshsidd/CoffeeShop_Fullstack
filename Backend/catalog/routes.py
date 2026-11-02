@@ -53,7 +53,7 @@ def list_products(db: Session = Depends(get_db)):
 
 
 # ADMIN-ONLY Product ROUTE ----------
-@product_router.post("/products/", response_model=ProductOut, status_code=status.HTTP_201_CREATED)
+@product_router.post("/", response_model=ProductOut, status_code=status.HTTP_201_CREATED)
 def create_product(
     product_in: ProductCreate,
     db: Session = Depends(get_db),

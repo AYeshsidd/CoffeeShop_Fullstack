@@ -29,7 +29,8 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
             detail="Email already registered."
         )
 
-# Create new user object
+# Create new user object 
+
     new_user = Users(
         full_name=user.full_name,
         email=user.email,
@@ -39,7 +40,8 @@ def register(user: UserCreate, db: Session = Depends(get_db)):
         password_hash=hash_password(user.password)
     )
 
-    # Save user
+# Save user
+
     db.add(new_user)
     db.commit()
     db.refresh(new_user)
@@ -69,11 +71,9 @@ def login(credentials: UserLogin, db: Session = Depends(get_db)):
         refresh_token=create_refresh_token(token_data)
     )
 
-
 @router.get("/me", response_model=UserResponse)
 def read_current_user(current_user: Users = Depends(get_current_user)):
     return current_user
-
 
 @router.post("/refresh", response_model=TokenPair)
 def refresh_token(payload: TokenRefreshRequest, db: Session = Depends(get_db)):
