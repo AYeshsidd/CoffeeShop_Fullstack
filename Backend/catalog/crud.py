@@ -40,7 +40,7 @@ def get_product_by_id(db: Session, product_id: int):
 # PRODUCTS 
 
 def create_product(db: Session, product_in: ProductCreate):
-    new_product = Products(
+    new_product = Products( # python object of Products class
         category_id=product_in.category_id,
         product_name=product_in.product_name,
         product_description=product_in.product_description,

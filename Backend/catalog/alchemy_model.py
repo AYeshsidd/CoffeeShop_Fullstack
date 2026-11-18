@@ -19,7 +19,7 @@ class Products(Base):
 
     product_id = Column(Integer, primary_key=True, index=True, autoincrement=True)
     category_id = Column(Integer, ForeignKey("categories.category_id"), nullable=False)
-    product_name = Column(String(120), nullable=False)
+    product_name = Column(String(120), nullable=False, unique=True)
     product_description = Column(String(120), nullable=False)
     price = Column(DECIMAL(10,2), nullable=False)
     quantity = Column(Integer, nullable=False, default=0)

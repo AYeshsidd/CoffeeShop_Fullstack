@@ -57,7 +57,7 @@ function resolveImageSrc(url: string | null): string | null {
 
       {/* Product Info - More compact padding */}
       <div className="p-3.5">
-        <h3 className="font-display text-base font-semibold text-primary-900 mb-1 line-clamp-1 group-hover:text-accent-600 transition-colors">
+        <h3 className="">
           {product.product_name}
         </h3>
         <p className="text-xs text-primary-600 mb-2.5 line-clamp-2 leading-relaxed">
