@@ -24,7 +24,7 @@ app.include_router(category_router) # it will inlude routes on  swagger
 app.include_router(product_router)
 app.include_router(cart_router)
 
-alchemy_model.Base.metadata.create_all(bind=engine) # create connection with MYSQL
+# alchemy_model.Base.metadata.create_all(bind=engine) # create connection with MYSQL
 
 origins = [o.strip() for o in os.getenv("CORS_ORIGINS", "http://localhost:3000").split(",")]
 
